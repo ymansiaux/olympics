@@ -17,7 +17,8 @@ con = duckdb.connect(database="db/olympics.duckdb", read_only=False)
 
 
 for tbl in ["athletes", "medals_total", "medals", "teams", "nocs"]:
-    df_table = con.execute(f"SELECT * FROM {tbl} LIMIT 5").df()
+    # breakpoint()
+    df_table = con.execute(f"SELECT * FROM '{tbl}' LIMIT 5").df()
     st.dataframe(df_table)
 
 
