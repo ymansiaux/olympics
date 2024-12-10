@@ -10,6 +10,10 @@ if "db" not in os.listdir():
     logging.error("creating folder db")
     os.mkdir("db")
 
+if "olympics.duckdb" in os.listdir("db"):
+    logging.warning("deleting db")
+    os.remove("db/olympics.duckdb")
+
 if "olympics.duckdb" not in os.listdir("db"):
     logging.message("creating db")
     exec(open("import_data/data.py").read())
