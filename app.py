@@ -15,7 +15,7 @@ if "olympics.duckdb" in os.listdir("db"):
     os.remove("db/olympics.duckdb")
 
 if "olympics.duckdb" not in os.listdir("db"):
-    logging.message("creating db")
+    logging.warning("creating db")
     exec(open("import_data/data.py").read())
 
 con = duckdb.connect(database="db/olympics.duckdb", read_only=False)
